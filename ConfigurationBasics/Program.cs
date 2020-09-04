@@ -14,12 +14,14 @@ namespace ConfigurationBasics
                 ["GoodbyeMessage"] = "Goodbye, World"
             };
 
-            var builder = new ConfigurationBuilder();
-            builder.AddInMemoryCollection(settings);
+            var builder = new ConfigurationBuilder()
+                .AddInMemoryCollection(settings)
+                .AddJsonFile("appsettings.json");
 
             var config = builder.Build();
 
             Console.WriteLine($"{config["HelloMessage"]}");
+            // in the appsettings.json file, this part is missing:
             Console.WriteLine($"{config["GoodbyeMessage"]}");
         }
     }
