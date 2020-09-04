@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "ConfigurationBasics": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "GoodbyeMessage": "Goodbye from an env variable"
+      }
+    }
+  }
+}
