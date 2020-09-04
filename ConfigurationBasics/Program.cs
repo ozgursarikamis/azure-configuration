@@ -17,7 +17,7 @@ namespace ConfigurationBasics
             var builder = new ConfigurationBuilder()
                 .AddInMemoryCollection(settings)
                 .AddJsonFile("appsettings.json")
-                .AddEnvironmentVariables();
+                .AddEnvironmentVariables("ConfigurationBasics.");
 
             var config = builder.Build();
 

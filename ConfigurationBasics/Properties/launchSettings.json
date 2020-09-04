@@ -3,7 +3,7 @@
     "ConfigurationBasics": {
       "commandName": "Project",
       "environmentVariables": {
-        "GoodbyeMessage": "Goodbye from an env variable"
+        "ConfigurationBasics.GoodbyeMessage": "Goodbye from an env variable"
       }
     }
   }
