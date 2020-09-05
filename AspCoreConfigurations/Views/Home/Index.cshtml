@@ -1,13 +1,16 @@
-﻿@{
+﻿@using Microsoft.Extensions.Options
+
+@{
     ViewData["Title"] = "Home Page";
 }
-@model WelcomeConfig;
+
+@inject IOptions<WelcomeConfig> Config
 
 <h1>Configuration Basics</h1>
 
-The message is: <p>@Model.Message</p>   
+The message is: <p>@Config.Value.Message</p>   
 <br />
 <ul>
-    <li>@Model.TodaysNumber</li>
-    <li>@Model.SystemUp</li>
-</ul>
+    <li>@Config.Value.TodaysNumber</li>
+    <li>@Config.Value.SystemUp</li>
+</ul>   
