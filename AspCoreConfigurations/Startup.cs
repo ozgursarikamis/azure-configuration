@@ -20,6 +20,11 @@ namespace AspCoreConfigurations
         {
             services.AddControllersWithViews();
             services.Configure<WelcomeConfig>(Configuration.GetSection("Welcome"));
+            services.Configure<WelcomeConfig>(config =>
+            {
+                config.TodaysNumber = 1111;
+                config.SystemUp = false;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
