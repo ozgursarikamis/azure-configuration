@@ -2,27 +2,24 @@
 using Microsoft.AspNetCore.Mvc;
 using AspCoreConfigurations.Models;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 
 namespace AspCoreConfigurations.Controllers
 {
     public class HomeController : Controller
     {
-        //private readonly ILogger<HomeController> _logger;
-        private readonly IConfiguration _configuration;
+        private readonly WelcomeConfig _config;
 
-        public HomeController(IConfiguration configuration)
+        public HomeController(IOptions<WelcomeConfig> options)
         {
-            //_logger = logger;
-            _configuration = configuration;
+            _config = options.Value;
         }
 
         public IActionResult Index()
         {
-            var message = _configuration["Welcome:WelcomeMessage"];
-            
-            ViewData["WelcomeMessage"] = message;
-            ViewData["TodaysNumber"] = _configuration["Welcome:TodaysNumber"];
-            ViewData["SystemUp"] = _configuration["Welcome:SystemUp"];
+            ViewData["WelcomeMessage"] = _config.Message;
+            ViewData["TodaysNumber"] = _config.TodaysNumber;
+            ViewData["SystemUp"] = _config.SystemUp;
 
             return View();
         }
