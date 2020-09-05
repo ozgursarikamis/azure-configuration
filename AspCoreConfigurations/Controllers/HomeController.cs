@@ -16,12 +16,8 @@ namespace AspCoreConfigurations.Controllers
         }
 
         public IActionResult Index()
-        {
-            ViewData["WelcomeMessage"] = _config.Message;
-            ViewData["TodaysNumber"] = _config.TodaysNumber;
-            ViewData["SystemUp"] = _config.SystemUp;
-
-            return View();
+        { 
+            return View(_config);
         }
 
         public IActionResult Privacy()

@@ -1,12 +1,13 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@model WelcomeConfig;
 
 <h1>Configuration Basics</h1>
 
-The message is: <p>@ViewData["WelcomeMessage"]</p>
+The message is: <p>@Model.Message</p>   
 <br />
 <ul>
-    <li>@ViewData["TodaysNumber"]</li>
-    <li>@ViewData["SystemUp"].ToString()</li>
+    <li>@Model.TodaysNumber</li>
+    <li>@Model.SystemUp</li>
 </ul>
