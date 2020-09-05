@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using AspCoreConfigurations.Models;
 using Microsoft.Extensions.Configuration;
 
@@ -19,8 +18,12 @@ namespace AspCoreConfigurations.Controllers
 
         public IActionResult Index()
         {
-            var message = _configuration["WelcomeMessage"];
+            var message = _configuration["Welcome:WelcomeMessage"];
+            
             ViewData["WelcomeMessage"] = message;
+            ViewData["TodaysNumber"] = _configuration["Welcome:TodaysNumber"];
+            ViewData["SystemUp"] = _configuration["Welcome:SystemUp"];
+
             return View();
         }
 
