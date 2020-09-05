@@ -1,25 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using AspCoreConfigurations.Models;
+using Microsoft.Extensions.Configuration;
 
 namespace AspCoreConfigurations.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        //private readonly ILogger<HomeController> _logger;
+        private readonly IConfiguration _configuration;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IConfiguration configuration)
         {
-            _logger = logger;
+            //_logger = logger;
+            _configuration = configuration;
         }
 
         public IActionResult Index()
         {
+            var message = _configuration["WelcomeMessage"];
+            ViewData["WelcomeMessage"] = message;
             return View();
         }
 
